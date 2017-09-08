@@ -14,7 +14,7 @@ make
 ./fdf files/basic.fdf
 ```
 # Controls
-You will see the controls while you run the app.
+
 
 # Next?
 The colors based on the z axis + better perspective
