@@ -9,6 +9,12 @@ Git clone the project, make it and choose a file with the extension .fdf in the 
 
 ```
 git clone https://github.com/ARhony/fdf.git fdfRhony
+cd fdfRhony
 make
 ./fdf files/basic.fdf
 ```
+# Controls
+You will see the controls while you run the app.
+
+# Next?
+The colors based on the z axis + better perspective
