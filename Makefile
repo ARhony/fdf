@@ -15,25 +15,47 @@ NAME_LLDB = lldb
 
 NAMELIB = libft/libft.a
 
-SRC = srcs/main.c srcs/read.c srcs/utilities.c srcs/calcul.c srcs/draw.c srcs/key_input.c srcs/init.c srcs/matrice.c
+LIBFT_DIR = ./libft/
+NAMELIBFT = ./libft/libft.a
 
-FLAGS = -Wextra -Werror -Wall
+MINILIBX_DIR = minilibx/
+NAMEMLX = minilibx/libmlx.a
+
+LIB = $(LIBFT_DIR) $(NAMELIBFT)
+MLX = $(MINILIBX_DIR) $(NAMEMLX)
+
+SRC = srcs/main.c 		\
+	  srcs/read.c 		\
+	  srcs/utilities.c 	\
+	  srcs/calcul.c 	\
+	  srcs/draw.c 		\
+	  srcs/key_input.c 	\
+	  srcs/init.c 		\
+	  srcs/matrice.c
+
+FLAGS = -Wextra -Werror -Wall -O3
+FRAMEWORK = -framework OpenGL -framework AppKit
 
 INCLUDE = -I ./include
 
-all : $(NAME)
+all : $(LIB) $(MLX) $(NAME)
+
+$(LIB):
+	@$(MAKE) -C $(LIBFT_DIR) re
+
+$(MLX):
+	@$(MAKE) -C $(MINILIBX_DIR)
 
 $(NAME):
-	gcc $(FLAGS) $(INCLUDE) -o $(NAME) $(SRC) $(NAMELIB) -I minilibx -L minilibx -lmlx -framework OpenGL -framework AppKit
+	@gcc $(FLAGS) $(INCLUDE) -o $(NAME) $(SRC) $(NAMELIBFT) -I minilibx -L minilibx -lmlx $(FRAMEWORK)
 
 clean :
-	rm -f $(OBJECT)
+	@rm -f $(OBJECT)
 
 fclean : clean
+	cd $(LIBFT_DIR) && make fclean
+	cd $(MINILIBX_DIR) && make clean
 	rm -f $(NAME)
 
 re : fclean all
 
-l :
-	gcc $(FLAGS) -o $(NAME_LLDB) $(SRC) $(NAMELIB) -I minilibx -L minilibx -lmlx -framework OpenGL -framework AppKit -g
-	lldb ./$(NAME_LLDB)
