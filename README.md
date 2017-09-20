@@ -1,5 +1,5 @@
 # fdf
-In this project I discovered the basics of graphic programming and how to place points in space, how to join them and most importantly how to obeserve the scene from a particular viewpoint.
+In this project I discovered the basics of graphic programming, and in particular how to place points in space, how to join them with segments and more importantly how to observe the scene from a specific viewpoint. This project introduced me to “events” programming. FDF is about creating a simplified graphic “wireframe” (“Fils De Fer” in french) representation of a relief landscape linking various points (x, y, z) via segments. The coordinates of this landscape was stored in a file passed as a parameter to my program.
 
 ![screenshot](https://user-images.githubusercontent.com/24727426/30224351-b7bd5d40-94ce-11e7-8c0f-b6b6194d2fe0.png)
 
